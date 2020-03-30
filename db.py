@@ -3,16 +3,13 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column,Integer,String
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship,backref
-<<<<<<< HEAD
 from sqlalchemy import Table
-=======
 
 engine = create_engine('mysql://root@localhost/study?charset=utf8')
 
 Base = declarative_base(engine)
 
 class User(Base):
-<<<<<<< HEAD
     __tablename__ = 'user'
     id = Column(Integer,primary_key=True)
     name = Column(String(64),unique=True,nullable=False)
@@ -59,52 +56,4 @@ class Tag(Base):
 
 if __name__ == '__main__':
     Base.metadata.create_all()
-=======
-	__tablename__ = 'user'
-	id = Column(Integer,primary_key=True)
-	name = Column(String(64),unique=True,nullable=False)
-	email = Column(String(64),unique=True)
-
-	def __repr__(self):
-		return '<User: {}>'.format(self.name)
-
-class Course(Base):
-	__tablename__ = 'couser'
-	id = Column(Integer,primary_key=True)
-	name = Column(String(64))
-	user_id = Column(Integer,ForeignKey('user.id',ondelete='CASCADE'))
-	user = relationship('User',backref=backref('course',cascade='all,delete-orphan'))
-	def __repr__(self):
-		return '<Course: {}.format(self.name)>'
-
-if __name__ == '__main__':
-	Base.metadata.create_all()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

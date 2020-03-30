@@ -1,8 +1,6 @@
 from sqlalchemy.orm import sessionmaker
 from faker import Faker
-<<<<<<< HEAD
 from db import Base,engine,User,Course,Lab,Tag
-=======
 
 session = sessionmaker(engine)()
 fake = Faker('zh-cn')
@@ -18,7 +16,6 @@ def create_courses():
             course = Course(name=''.join(fake.words(4)),user_id=user.id)
             session.add(course)
 
-<<<<<<< HEAD
 def create_labs():
     for course in session.query(Course):
         lab = Lab(name=''.join(fake.words(5)),id=course.id)
